@@ -2,13 +2,11 @@
 This is the Python code for the article
 ```
 @article{zhou2024robust,
-  title={Robust Predictive Motion Planning by Learning
-Obstacle Uncertainty},
+  title={Robust Predictive Motion Planning by Learning Obstacle Uncertainty},
   author={Jian Zhou, Yulong Gao, Ola Johansson, Bj\"orn Olofsson, and Erik Frisk},
   year={2024},
   pages={},
-  doi={ }
-} 
+  doi={ }} 
 ```
 
 The authors are from the Department of Electrical Engineering, Linköping University, Sweden, Department of Electrical and Electronic
