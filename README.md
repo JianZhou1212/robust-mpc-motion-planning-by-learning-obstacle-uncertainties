@@ -24,5 +24,17 @@ To run the code you need to install the following key packages:
 Note: Installing the HSL package can be a bit comprehensive, but the solvers just speed up the solutions. You can comment out the places where the HSL solver is used, i.e., "ipopt.linear_solver": "ma57", and just use the default linear solver of CasADi. 
 
 ## Introduction to the files
+(1) `main.ipynb` is the main file for simulation.
+
+(2) `ModelingSVTrue.py` defines the nonlinear MPC controller for simulating the SV.
+
+(3) `Planner_D.py` defines the deterministic MPC (DMPC) planner.
+
+(4) `Planner_R.py` defines the robust MPC (RMPC) planner.
+
+(5) `Planner_N.py` defines the proposed MPC planner.
+
+The code for the other case studies will be published soon, while the other case studies are implemented by the same methods.
+
 
 
