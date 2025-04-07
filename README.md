@@ -1,19 +1,28 @@
 # Robust Predictive Motion Planning by Learning Obstacle Uncertainty
-This is the Python code for the article
+This is the code for the article
 ```
-@article{zhou2024robust,
-  title={Robust Predictive Motion Planning by Learning Obstacle Uncertainty},
-  author={Jian Zhou, Yulong Gao, Ola Johansson, Bj\"orn Olofsson, and Erik Frisk},
-  year={2024},
+@article{zhou2025robust,
+  title={Robust predictive motion planning by learning obstacle uncertainty},
+  author={Zhou, Jian and Gao, Yulong and Johansson, Ola and Olofsson, Bj{\"o}rn and Frisk, Erik},
+  journal={IEEE Transactions on Control Systems Technology},
+  year={2025},
   pages={},
-  doi={ }} 
+  doi={10.1109/TCST.2025.3533378},
+  publisher={IEEE}
+}
 ```
 
-The authors are from the Department of Electrical Engineering, Linköping University, Sweden, Department of Electrical and Electronic
-Engineering, Imperial College London, United Kingdom, and the Department of Automatic Control, Lund University, Sweden.
+**Jian Zhou** and **Erik Frisk** are with the Department of Electrical Engineering, Linköping University, Sweden.
+
+**Yulong Gao** is with the Department of Electrical and Electronic
+Engineering, Imperial College London, United Kingdom.
+
+**Björn Olofsson** is with the Department of Automatic Control, Lund University, Sweden.
+
+Contact: zjzb1212@qq.com
 
 ## Packages for running the code
-To run the code you need to install the following key packages:
+The programming is by Python. To run the code you need to install the following key packages:
 
 **CasADi**: https://web.casadi.org/
 
@@ -21,20 +30,46 @@ To run the code you need to install the following key packages:
 
 **pytope**: https://pypi.org/project/pytope/
 
-Note: Installing the HSL package can be a bit comprehensive, but the solvers just speed up the solutions. You can comment out the places where the HSL solver is used, i.e., "ipopt.linear_solver": "ma57", and just use the default linear solver of CasADi. 
+Note: To install the HSL package can be a bit comprehensive, but the solvers just speed up the solutions. You can comment out the places where the HSL solver is used, i.e., "ipopt.linear_solver": "ma57", and just use the default linear solver (`mumps`) of CasADi. 
 
 ## Introduction to the files
-(1) `main.ipynb` is the main file for simulation.
+I. In `1_Reach_Avoid` folder:  
+&ensp; (1) `main.ipynb` is the main file for simulation.  
+&ensp; (2) `ModelingSVTrue.py` models the SV.  
+&ensp; (3) `Planner_P.py` is the Proposed method.  
+&ensp; (4) `Planner_D.py` is the Deterministic method.  
+&ensp; (5) `Planner_P.py` is the Robust method.  
+&ensp; (6) The data is saved in the folder `plot` for reproduction of the results in the paper.
 
-(2) `ModelingSVTrue.py` defines the nonlinear MPC controller for simulating the SV.
+II. In `2_Active_Evasion` folder:  
+&ensp; (1) `main.ipynb` is the main file for simulation.  
+&ensp; (2) `ModelingSVTrue.py` models the SV.  
+&ensp; (3) `Planner_P.py` is the Proposed method for motion planning of the EV.
 
-(3) `Planner_D.py` defines the deterministic MPC (DMPC) planner.
 
-(4) `Planner_R.py` defines the robust MPC (RMPC) planner.
+III. In `3_Highspeed_Overtaking` folder:  
+&ensp; (1) `main.ipynb` is the main file for simulation.  
+&ensp; (2) `ModelingSVTrue.py` models the SV.  
+&ensp; (3) `Planner_P.py` is the Proposed method for motion planning of the EV.
+&ensp; (4) `cdf_f.mat` and `cdf_x.mat` save the distribution information of the SV trained from a real-world dataset. This information is used to model the SV in the overtaking scenario.
 
-(5) `Planner_N.py` defines the proposed MPC planner.
+IV. In `4_Encounter_Scenario_With_Same_Control` folder:  
+&ensp; (1) `main.ipynb` is the main file for simulation.  
+&ensp; (2) `ModelingSVTrue.py` models the SV.  
+&ensp; (3) `Planner_EV.py` is the Proposed method for motion planning of the EV.
+&ensp; (3) `Planner_SV.py` is the Proposed method for motion planning of the SV.
+&ensp; (4) In this case both the EV and SV use the same strategy.
 
-The code for the other case studies will be published soon, while the other case studies are implemented by the same methods.
+V. In `5_rounD_Scenario` folder:  
+&ensp; (1)`main.ipynb` is the main file for simulation.  
+&ensp; (2)`Planner_P.py` is the Proposed method for motion planning of the EV.  
+&ensp; (3) `EV_Data.npy`, `SV0_Data.npy`, and `SV1_Data.npy` save the data of the involved vehicles in the rounD dataset scenario.
+
+## Remarks
+I. The code for generating the animations has been removed as a result of version compatibility of Python.  
+
+II. The code for hardware experiments can be easily designed based on the published code here.
+
 
 
 
